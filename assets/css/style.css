@@ -1,0 +1,26 @@
+.container {
+
+}
+
+#page-header {
+  position: relative;
+  font-size: 32px;
+  left: 50%;
+  border: 5px;
+  border-color: black;
+}
+
+#games {
+  position: relative;
+}
+
+#wins {
+  font-size: 18px;
+  position: relative;
+  float: left;
+  top: 370px;
+}
+
+
+background-image {
+}
