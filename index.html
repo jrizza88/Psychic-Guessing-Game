@@ -12,9 +12,8 @@ body {background-image: url("assets/images/world.jpg");
 </head>
 
 <body>
-<script type="text/javascript" src="assets/javascript/Game.js"></script>
-<div class="container">
-  <div id="page-header">
+
+<div id="page-header">
   <h1> <u>Psychic guessing game!</u> </h1>
   
   </div>
@@ -23,19 +22,71 @@ body {background-image: url("assets/images/world.jpg");
     <h2> Press any key to get started! </h2>
   </div>
 
+
   <div id="wins"> 
-  <p> You Have <span id="lives">_</span> Lives Left </p>
+  <p> <strong>Guess which letter I am thinking of</strong> </p>
     <p> <b>Wins: #</b> </p>
     <p> <b>Losses: #</b> </p>
-    <p> <b>User guesses: </b> </p>
+    <p> <b>Guesses left: </b> </p>
   </div>
 
 
-  <div id="letters">
 
-  </div>
 
-</div>
+
+<script type="text/javascript">
+var Letters = [ 
+  'a','b','c','d','e','f','g','h','i','j','k',
+  'l','m','n','o','p','q','r','s','t','u','v',
+  'w','x','y','z'];
+
+// scoreboard counters and containers
+var userLose = 0;
+var userWin = 0;
+var GuessesLeft = 13;
+var Guessed = [];
+var reset = function() {
+        GuessesLeft = 13;
+        Guessed = [];
+        }
+ 
+// When the user presses the key it records the keypress and then sets it to userGuess  
+document.onkeyup = function(event) {
+var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+var compGuess = Letters[Math.floor(Math.random() * Letters.length)];
+
+
+// user chooses letter
+if (Letters.indexOf(userGuess) > -1){
+  console.log("Correct guess!");
+   Guessed.push(userGuess);
+  GuessesLeft--;
+
+  }
+else {
+  console.log("Not a valid input!")
+}
+
+// when user guesses correctly, their win score goes up by 1
+if (compGuess === userGuess) {
+  userWin++;
+  reset();
+}
+
+// when user guesses incorrectly, their loss score goes up by 1
+if(GuessesLeft == 0){
+  userLose++;
+  reset();
+}
+
+// this renders the original text to update to the new text
+document.querySelector('#wins').innerHTML=
+        '<p>Wins: ' + userWin + '</p>' +
+        '<p>Losses: ' + userLose + '</p>' +
+        '<p>Guesses Left: ' + GuessesLeft + '</p>';
+
+};
+</script>
 
 </body>
 </html>
