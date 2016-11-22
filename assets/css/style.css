@@ -1,5 +1,9 @@
-.container {
 
+
+html {
+  height: 75%;
+  background: url("crystalball.png") no-repeat center center;
+  background-size: cover;
 }
 
 #page-header {
@@ -10,17 +14,34 @@
   border-color: black;
 }
 
+#games, #wins {
+  padding: 20px;
+  margin: 20px;
+  border: 20px;
+  border-color: white;
+}
+
 #games {
   position: relative;
+  top: 200px;
+  left: 50%;
 }
 
 #wins {
   font-size: 18px;
   position: relative;
+  left: 50%;
   float: left;
   top: 370px;
 }
 
 
+
 background-image {
+  background: no-repeat center top;
+  padding-top: 100px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 450px;
+  width: 100%;
 }

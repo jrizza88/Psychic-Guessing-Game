@@ -1,4 +1,6 @@
-6// Defining variables
+
+
+// Defining variables
 var Letters = [
   'a','b','c','d','e','f','g','h','i','j','k',
   'l','m','n','o','p','q','r','s','t','u','v',
@@ -13,6 +15,33 @@ var reset = function() {
         GuessesLeft = 13;
         Guessed = [];
         };
+
+// initializing the game
+// list of variables for computer to randomize
+function initializeGame() {
+var words = ['Argentina', 'Brazil', 'Bulgaria', 'Canada', 'Cameroon', 'Cuba', 'Haiti', 'Nigeria', 'India', 
+        'Kazakhstan', 'Tunisia', 'Eritrea', 'Indonesia', 'Turkey','Greece', 'Spain', 
+        'Switzerland', 'Japan', 'Israel', 'Egypt', 'Italy', 'Australia', 'Morocco', 'Vietnam', 
+        'Cambodia', 'Mongolia', 'Lesotho', 'Iran', 'China', 'Samoa', 'Iceland', 'Poland'];
+var allowedGuesses = '10';
+var correctGuesses = [];
+var wrongGuesses = [];
+var guessCounter = word.length;
+
+var underscores+= '';
+for (var i =0; i < word.length; i++) {
+  underscores+= '_';
+}
+
+  document.getElementbyID('word').innerHTML = underscores;
+}
+
+
+
+
+
+
+
 
 // When the user presses the key it records the keypress and then sets it to userGuess
     document.onkeyup = function(event) {
