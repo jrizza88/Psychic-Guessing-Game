@@ -9,37 +9,16 @@ var letters = [
 // scoreboard counters and containers
 var userLose = 0;
 var userWin = 0;
-var GuessesLeft = 13;
-var Guessed = [];
+var guessesLeft = 13;
+var guessed = [];
 var reset = function() {
-        GuessesLeft = 13;
-        Guessed = [];
+        guessesLeft = 13;
+        guessed = [];
         };
 
-// initializing the game
-// list of variables for computer to randomize
-function initializeGame() {
-    var words = ['Argentina', 'Brazil', 'Bulgaria', 'Canada', 'Cameroon', 'Cuba', 'Haiti', 'Nigeria', 'India', 
-            'Kazakhstan', 'Tunisia', 'Eritrea', 'Indonesia', 'Turkey','Greece', 'Spain', 
-            'Switzerland', 'Japan', 'Israel', 'Egypt', 'Italy', 'Australia', 'Morocco', 'Vietnam', 
-            'Cambodia', 'Mongolia', 'Lesotho', 'Iran', 'China', 'Samoa', 'Iceland', 'Poland'];
-    var allowedGuesses = '10';
-    var correctGuesses = [];
-    var wrongGuesses = [];
-    var guessCounter = word.length;
-
-    var underscores+= '';
-    for (var i =0; i < word.length; i++) {
-      underscores+= '_';
-    }
-
-  document.getElementbyID('word').innerHTML = underscores;
-}
-
-
-
-
-
+// Total tally and displaying them in HTML
+"<p>wins: " + userWin + "</p>" +
+"<p>losses: " + userLose + "</p>";
 
 
 
@@ -52,13 +31,13 @@ function initializeGame() {
          
         // user chooses letter
         
-        if (Letters.indexOf(userGuess) > -1){
-          console.log("Correct guess!");
+        if (letters.indexOf(userGuess) > -1){
+          console.log("wrong guess?!");
           document.getElementById('wins').innerHTML= "<p>You are correct! whoop whoop!</p>" + 
           "<p>wins: " + userWin + "</p>" + 
           "<p>losses: " + userLose + "</p>";
-          Guessed.push(userGuess);
-          GuessesLeft--;
+          guessed.push(userGuess);
+          guessesLeft--;
         }
         else {
           console.log("Not a valid input!")
@@ -67,26 +46,28 @@ function initializeGame() {
         if (compGuess === userGuess) {
           userWin++;
           reset();
+          console.log("Good guess!");
         }
         
         
         //Game reset condition for "game over"
-        if(GuessesLeft == 0){
+        if(guessesLeft == 0){
           userLose++;
-          document.getElementById("wins").innerHTML="<p>You're out of guesses! Try again mate!</p>";
+          document.getElementById("wins").innerHTML=
+          "<p>You're out of guesses! Try again mate!</p>";
           reset();
         }
           // counters and containers
          
           console.log("total wins: " + userWin);
           console.log("total losses: " + userLose);
-          console.log("Guesses left: "+ GuessesLeft);
-          console.log("Guessed: " + Guessed);
+          console.log("Guesses left: "+ guessesLeft);
+          console.log("Guessed: " + guessed);
         
           document.querySelector('#wins').innerHTML=
           '<p>Wins: ' + userWin + '</p>' +
           '<p>Losses: ' + userLose + '</p>' +
-          '<p>Guesses Left: ' + GuessesLeft + '</p>';
+          '<p>Guesses Left: ' + guessesLeft + '</p>';
         
         };
         
